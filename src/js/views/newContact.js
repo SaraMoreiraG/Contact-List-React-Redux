@@ -41,15 +41,17 @@ export const NewContact = () => {
 				</Form.Group>
 
 				<div className="d-grid gap-2">
-					<Button
-						onClick={() => actions.createContact(
-							fullName.current.value,
-							email.current.value,
-							address.current.value,
-							phone.current.value
-						)} variant="primary">
-						Save
-					</Button>
+					<Link to={"/"}>
+						<Button
+							onClick={() => actions.createContact(
+								fullName.current.value,
+								email.current.value,
+								address.current.value,
+								phone.current.value
+							)} variant="primary">
+							Save
+						</Button>
+					</Link>
 				</div>
 
 				<Button href='/' variant="link" className="p-0">

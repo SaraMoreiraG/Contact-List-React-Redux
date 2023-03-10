@@ -32,7 +32,6 @@ const getState = ({ getStore, getContactList, getActions, setStore, setContactLi
 			},
 
 			createContact : async (full_name, email, address, phone) => {
-				console.log(full_name);
 				const newContact = {
 					full_name: full_name,
 					email: email,
@@ -40,7 +39,6 @@ const getState = ({ getStore, getContactList, getActions, setStore, setContactLi
 					address: address,
 					phone: phone,
 				}
-				console.log(newContact);
 				fetch(`https://assets.breatheco.de/apis/fake/contact/`, {
 					method: 'POST',
 					headers: {
@@ -52,6 +50,9 @@ const getState = ({ getStore, getContactList, getActions, setStore, setContactLi
 					return res.json();
 				})
 				.then(response => console.log('Success:', response))
+				.then( () => fetch('https://assets.breatheco.de/apis/fake/contact/agenda/sara_moreira'))
+				.then(result => result.json())
+				.then(data => setContactList({ result: data }))
 				.catch(error => console.error(error));
 			},
 
@@ -69,10 +70,20 @@ const getState = ({ getStore, getContactList, getActions, setStore, setContactLi
 					},
 					body: JSON.stringify(editContact)
 				})
+				.then(response => console.log('Success:', response))
+				.then( () => fetch('https://assets.breatheco.de/apis/fake/contact/agenda/sara_moreira'))
+				.then(result => result.json())
+				.then(data => setContactList({ result: data }))
+				.catch(error => console.error(error));
 			},
 
 			deleteContact : async (id) => {
 				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {method: 'DELETE'})
+				.then(response => response.json())
+				.then( () => fetch('https://assets.breatheco.de/apis/fake/contact/agenda/sara_moreira'))
+				.then(result => result.json())
+				.then(data => setContactList({ result: data }))
+				.catch(error => console.error(error));
 			},
 
 			changeColor: (index, color) => {

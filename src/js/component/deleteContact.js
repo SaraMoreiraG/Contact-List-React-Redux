@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { Context } from '../store/appContext';
+import { Link } from 'react-router-dom';
 
 function DeleteContact({ show, setShow, id }) {
 	const { actions } = useContext(Context);
@@ -17,9 +18,11 @@ function DeleteContact({ show, setShow, id }) {
 					<Button variant="secondary" onClick={() => setShow(false)}>
 					Oh no!
 					</Button>
-					<Button variant="primary" onClick={() => actions.deleteContact(id) && setShow(false)}>
-					Yes baby!
-					</Button>
+					<Link to="/" onClick={() => actions.deleteContact(id) && setShow(false)}>
+						<Button variant="primary">
+						Yes baby!
+						</Button>
+					</Link>
 				</Modal.Footer>
 			</Modal>
 		</>
