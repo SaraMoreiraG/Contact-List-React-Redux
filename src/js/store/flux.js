@@ -1,4 +1,4 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, getContactList, getActions, setStore, setContactList }) => {
 	return {
 		store: {
 			demo: [
@@ -14,16 +14,67 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			]
 		},
+		contactList : {
+			result: [
+			]
+		},
+
 		actions: {
-			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+
+			loadContactList : async () => {
+				const contactList = getContactList();
+				fetch('https://assets.breatheco.de/apis/fake/contact/agenda/sara_moreira')
+				.then(response => response.json())
+				.then(data => setContactList({ result: data }))
 			},
+
+			createContact : async (full_name, email, address, phone) => {
+				console.log(full_name);
+				const newContact = {
+					full_name: full_name,
+					email: email,
+					agenda_slug: "sara_moreira",
+					address: address,
+					phone: phone,
+				}
+				console.log(newContact);
+				fetch(`https://assets.breatheco.de/apis/fake/contact/`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(newContact)
+				}).then(res => {
+					if (!res.ok) throw Error(res.statusText);
+					return res.json();
+				})
+				.then(response => console.log('Success:', response))
+				.catch(error => console.error(error));
+			},
+
+			editContact : async (id, newFull_name, newEmail, newAddress, newPhone) => {
+				const editContact = {
+					full_name: newFull_name,
+					email: newEmail,
+					address: newAddress,
+					phone: newPhone,
+				}
+				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
+					method: 'PUT',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(editContact)
+				})
+			},
+
+			deleteContact : async (id) => {
+				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {method: 'DELETE'})
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
