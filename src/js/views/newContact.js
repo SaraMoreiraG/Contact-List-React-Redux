@@ -40,8 +40,8 @@ export const NewContact = () => {
 					<Form.Control ref={address} type="text" placeholder="Enter address" />
 				</Form.Group>
 
-				<div className="d-grid gap-2">
-					<Link to={"/"}>
+				<Link to={"/"}>
+					<div className="d-grid gap-2">
 						<Button
 							onClick={() => actions.createContact(
 								fullName.current.value,
@@ -51,8 +51,8 @@ export const NewContact = () => {
 							)} variant="primary">
 							Save
 						</Button>
-					</Link>
-				</div>
+					</div>
+				</Link>
 
 				<Button href='/' variant="link" className="p-0">
 					or get back to contacts
