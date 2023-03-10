@@ -22,7 +22,7 @@ export const Home = () => {
 
 	return (
 		<div className="home">
-			<div className="d-flex justify-content-end mx-5 p-4">
+			<div className="container d-flex justify-content-end p-3">
 				<Link to="/newContact">
 					<button className="btn btn-primary">Add new contact</button>
 				</Link>
