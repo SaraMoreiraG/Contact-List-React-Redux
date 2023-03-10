@@ -71,6 +71,7 @@ const getState = ({ getStore, getContactList, getActions, setStore, setContactLi
 					body: JSON.stringify(editContact)
 				})
 				.then(response => console.log('Success:', response))
+				.catch(error => console.error(error))
 				.then( () => fetch('https://assets.breatheco.de/apis/fake/contact/agenda/sara_moreira'))
 				.then(result => result.json())
 				.then(data => setContactList({ result: data }))

@@ -1,78 +1,51 @@
-# WebApp boilerplate with React JS
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-hello-webapp.git)
+# Responsible Contact List <small>- with Fetch API</small>
 
 <p align="center">
-<a href="https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b"><img src="https://github.com/4GeeksAcademy/react-hello-webapp/blob/master/src/img/how-to.png?raw=true" /></a>
+This is a contact management application that allows users to: Read, Create, Update and Delete
+contacts throught diferents views and modals. The information will be store in a demo API.
 </p>
 
+<p align="center">
+<img src='./src/img/index-lg.png' alt='page-example' width='60%'>
+<img src='./src/img/index-sm.png' alt='page-example' width='25%'>
+<img src='./src/img/index-xs.png' alt='page-example' width='10%'>
+</p>
 
-### Requirements:
+<p align="center">
+Used technologies:
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1280px-Bootstrap_logo.svg.png' alt='bootstrap' alt='bootstrap' width='40'>
+<img src='https://cdn.worldvectorlogo.com/logos/html-1.svg' alt='html' width='30'>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png' alt='react' alt='react' width='40'>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png'
+alt='javascript' alt='javascript' width='35'>
+<img src='https://reactrouter.com/_brand/react-router-stacked-color-inverted.png' alt='react router' width='50'>
+</p>
+
+<p align="center">
+The context is defined in the `/store` folder.
+</p>
+
+# Use template:
+
+### Requirements
 - Make sure you are using node version 10
 
-1. Install the packages:
+1. Clone this repository:
+```
+$ git clone git@github.com:SaraMoreiraG/Contact-List.git
+```
+2. Install the packages:
 ```
 $ npm install
 ```
-2. Create a .env file:
+3. Create a .env file:
 ```
 $ cp .env.example .env
 ```
-3. Start coding! and the webpack dev server with live reload, for windows, mac, linux or Gitpod:
+4. Start coding! and the webpack dev server with live reload, for windows, mac, linux or Gitpod:
 
 ```bash
 $ npm run start
-```
-
-### Styles
-You can update the `styles/index.css` or create new `.css` files inside `styles/` and import them into your current scss or js files depending on your needs.
-
-### Components
-Add more files into your `./src/js/components` or styles folder as you need them and import them into your current files as needed.
-
-**Note (New changes)**: Components have been converted into functions to support the use of hooks:
-* Instead of a class component, we're using a `const` function.
-* Class `constructor` and `state` have been replaced by `useState()` hooks.
-* `componentDidMount()` was replaced by `useEffect({}, [])` - It runs at mount thanks to the second parameter (`[]`).
-* `Actions` and `Store` still work the same way.
-
-```jsx
-// Previous "Class Oriented"
-export class Demo extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = getState('code here');
-	}
-}
-
-// New "Functional Oriented"
-export const Demo = () => (
-	const [state, setState] = getState('code here'); //using the state (if needed)
-  const { store, actions } = useContext(Context); // using the context (if needed)
-
-);
-```
-
-💡Note: There is an example using the Context API inside `views/demo.js`;
-
-### Views (Components)
-Add more files into your `./src/js/views` and import them in `./src/js/layout.jsx`.
-
-### Context
-This boilerplate comes with a centralized general Context API. The file `./src/js/store/flux.js` has a base structure for the store, we encourage you to change it and adapt it to your needs.
-
-React Context [docs](https://reactjs.org/docs/context.html)
-BreathCode Lesson [view](https://content.breatheco.de/lesson/react-hooks-explained)
-
-The `Provider` is already set. You can consume from any component using the useContext hook to get the `store` and `actions` from the Context. Check `/views/demo.js` to see a demo.
-
-```jsx
-import { Context } from "../store/appContext";
-const MyComponentSuper = () => {
-  //here you use useContext to get store and actions
-  const { store, actions } = useContext(Context);
-  return <div>{/* you can use your actions or store inside the html */}</div>
-}
 ```
 
 ## Publish your website!
