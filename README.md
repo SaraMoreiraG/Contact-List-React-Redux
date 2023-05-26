@@ -25,48 +25,22 @@ alt='javascript' alt='javascript' width='35'>
 The context is defined in the `/store` folder.
 </p>
 
-# Use template:
+## Getting Started
 
-### Requirements
-- Make sure you are using node version 10
+To run the Contact List application locally, follow these steps:
 
-1. Clone this repository:
-```
-$ git clone git@github.com:SaraMoreiraG/Contact-List.git
-```
-2. Install the packages:
-```
-$ npm install
-```
-3. Create a .env file:
-```
-$ cp .env.example .env
-```
-4. Start coding! and the webpack dev server with live reload, for windows, mac, linux or Gitpod:
+1. Clone the repository: `git clone https://github.com/SaraMoreiraG/Contact-List.git`
+2. Navigate to the project directory: `cd contact-list-app`
+3. Install the dependencies: `npm install`
+4. Start the development server: `npm start`
+5. Access the application in your browser at: `http://localhost:3000`
 
-```bash
-$ npm run start
-```
+## Contributing
 
-## Publish your website!
+Contributions are welcome! If you'd like to contribute to the Todo List application, please follow these steps:
 
-1. **Vercel:** The FREE recomended hosting provider is [vercel.com](https://vercel.com/), you can deploy in 1 minutes by typing the following 2 commands:
-
-Login (you need to have an account):
-```sh
-$ npm i vercel -g && vercel login
-```
-Deploy:
-```sh
-$ vercel --prod
-```
-✎ Note: If you don't have an account just go to vercel.com, create a account and come back here.
-
-![Vercel example procedure to deploy](https://github.com/4GeeksAcademy/react-hello-webapp/blob/4b530ba091a981d3916cc6e960e370decaf2e234/docs/deploy.png?raw=true)
-
-2. **Github Pages:** This boilerplate is 100% compatible with the free github pages hosting.
-To publish your website you need to push your code to your github repository and run the following command after:
-```sh
-$ npm run deploy
-```
-Note: You will need to [configure github pages for the branch gh-pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#enabling-github-pages-to-publish-your-site-from-master-or-gh-pages)
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature/my-feature`
+3. Make your changes and commit them: `git commit -am 'Add your commit message'`
+4. Push your changes to the branch: `git push origin feature/my-feature`
+5. Submit a pull request
